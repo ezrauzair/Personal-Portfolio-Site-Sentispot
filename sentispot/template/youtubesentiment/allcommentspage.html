@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(136, 139, 139, 0.521);
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 0%;
+
+        }
+
+        .wholepage {
+            background-color: aliceblue;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            /* Set the width to 100% of the viewport */
+            max-width: 1920px;
+            /* Set a maximum width for larger screens */
+            min-height: 100vh;
+            /* Set a minimum height to 100% of the viewport height */
+
+        }
+
+
+
+        .menuecontainer {
+            position: fixed;
+            height: auto;
+            width: 1080px;
+        }
+
+        .menue {
+
+            height: auto;
+            width: 100%;
+            display: flex;
+            background-color: #223D50;
+            color: #fff;
+
+        }
+
+        .heading {
+            margin-left: 450px;
+
+        }
+
+        .comments-container {
+            height: auto;
+            width: auto;
+            margin-top: 60px;
+        }
+
+        ol li::marker {
+            font-weight: bold;
+        }
+
+
+        @media (max-width: 600px) {
+            body {
+            background-color: rgba(136, 139, 139, 0.521);
+            margin-top: 0%;
+            height: 340px;
+
+
+        }
+
+        .wholepage {
+            width: 290px;
+            /* Set a maximum width for larger screens */
+            height: auto;
+            /* Set a minimum height to 100% of the viewport height */
+            margin-left: -78px;
+
+        }
+
+
+
+        .menuecontainer {
+            position: fixed;
+            height: 15px;
+            width: 290px;
+        }
+
+        .menue {
+
+            height: 30px;
+            width: 100%;
+            display: flex;
+            background-color: #223D50;
+            color: #fff;
+
+        }
+
+        .heading {
+            margin-left: 100px;
+            font-size: 9px;
+
+        }
+
+        .comments-container {
+            height: auto;
+            width: auto;
+            margin-top: 25px;
+            font-size: 7px;
+            margin-left: -25px;
+        }
+
+        ol li::marker {
+            font-weight: bold;
+        }
+
+
+
+
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="wholepage">
+        <div class="menuecontainer">
+            <div class="menue">
+                <div class="heading">
+                    <h2> All Comments</h2>
+                </div>
+            </div>
+        </div>
+        <ol>
+            <div class="comments-container">
+                {% for i in comments %}
+                <li>{{ i }}</li>
+                {% endfor %}
+        </ol>
+    </div>
+
+</body>
+
+</html>

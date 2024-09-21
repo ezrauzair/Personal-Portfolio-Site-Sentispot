@@ -1,0 +1,701 @@
+body {
+
+  background-color: rgba(136, 139, 139, 0.521);
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 0%;
+  
+
+}
+
+.wholepage{
+  width: 1080px; 
+
+
+
+
+}
+.line0{
+
+width: 1076px;
+height: 10px;
+background-color: #54AFE0;
+margin-left: 1.5px;
+}
+
+
+
+
+
+
+.home{
+  background-color: #f4ab1a;
+  height: 35px;
+  width: 55px;
+  border-radius: 3px;
+  border: none;
+  transition: transform 0.3s ease, color 0.3s ease; /* Adjust timing and easing function */
+}
+
+
+.home:hover {
+    transform: scale(1.1); /* Slightly enlarge the button */
+    color: #f0f0f0; /* Change the text color on hover */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+}
+
+
+
+
+
+.dashboard{
+  width: 1077px;
+  height: 625px;
+  background-image: url("fakenewspic.png");
+  background-size: contain; 
+  background-position: center; 
+  background-repeat: no-repeat;  
+  position: relative;
+  margin-left: 1px;
+}
+
+
+
+  
+
+
+
+.heading{
+margin-right: 18px;
+width: auto;
+display: flex;
+gap: 10px; /* Adjust the value as needed */
+font-size: 22px;
+margin-top: 50px;
+margin-left: 600px;
+
+
+}
+
+
+
+textarea {
+margin-left: 620px;
+width: 350px;
+padding: 13px;  
+border: 1px solid #ccc;
+border-radius: 3px;
+font-size: 12px;  
+line-height: 1.5; 
+min-height: 150px; /* or any desired value */
+}
+textarea::placeholder {
+font-size: 12px; /* Change this value to increase or decrease the size */
+color: #999; /* Optional: change the color of the placeholder text */
+}
+
+.processbutton{
+  width: 120px;
+  height: 37px;
+  background-color: #f4ab1a;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 136px;
+  color: black;
+  border-radius: 3px;
+  margin-left: 750px;
+  transition: transform 0.3s ease, color 0.3s ease; /* Adjust timing and easing function */
+
+}
+
+.processbutton:hover {
+  transform: scale(1.1); /* Slightly enlarge the button */
+  color: #f0f0f0; /* Change the text color on hover */
+  cursor: pointer; /* Change the cursor to indicate it's clickable */
+}
+
+
+
+.button:hover {
+  margin-top: 2px;
+  background-color:  #f4e21a;
+}
+
+.messages{
+margin-left: 740px;
+}
+.progress-bar {
+width: 0;
+height: 15px;
+background-color: #f4e21a;
+border-radius: 15px;
+animation: progress 5s ease-in-out infinite;
+margin-top: 15px;
+margin-left: 620px;
+}
+
+@keyframes progress {
+0% {
+    width: 0;
+}
+50% {
+    width: 373px;
+}
+100% {
+    width: 0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.resulttrue{
+height: 40px;
+width: 250px;
+border: 1px solid #0EB48B;
+background-color: #0EB48B;
+margin-top: 40px;
+margin-left: 680px;
+border-radius: 8px;
+
+
+}
+.resultfake{
+height: 40px;
+width: 250px;
+border: 1px solid #FF554A;
+background-color: #FF554A;
+margin-top: 50px;
+margin-left: 680px;
+border-radius: 8px;
+
+}
+.true{
+height: 25px;
+width: 110px;
+margin-left: 65px;
+text-align: center;
+font-size: 150%;
+margin-top: 5px;
+}
+.fake{
+height: 25px;
+width: 110px;
+margin-left: 65px;
+text-align: center;
+font-size: 150%;
+margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.line1{
+width: 1076px;
+height: 10px;
+background-color: #17678C;
+margin-left: 1.5px;
+border: #17678C solid 1px;
+
+
+}
+.middle{
+width: 1076px;
+height: 355px;
+background-color: #FFFFFF;
+margin-left: 1.5px;
+display: flex;
+align-items: center;
+
+}
+
+.info{
+padding-left: 20px;
+width: 500px;
+height: 300px;
+line-height: 1.2; /* Increased line-height for more spacing */
+font-family: Arial, sans-serif;
+}
+
+.chart{
+margin-bottom: 100px;
+margin-left: 70px;
+margin-top: 110px;
+
+}
+
+.last{
+  width: 1076px;
+  height: 150px;
+  background-color: #FFFFFF;
+  border: 1px solid black;
+
+}
+.homepic {
+  border: 1px solid black;
+  width: 180px;
+  height: 150px;
+  margin-left: 450px;
+  background-image: url("fakenewspic.png");
+  background-size: contain; 
+  background-position: center; 
+  background-repeat: no-repeat;  
+  position: relative;
+  transition: background-color 0.23s ease; /* Optional smooth transition */
+}
+
+.homepic:hover {
+  background-color: #f0f0f0; /* Changes background color on hover */
+  transform: scale(1.1); /* Optional: enlarges the image on hover */
+  cursor: pointer; /* Changes the cursor to a pointer */
+}
+
+
+
+
+
+
+
+
+
+
+#background-content {
+  filter: blur(0px); /* Initial state, no blur */
+  transition: filter 0.3s ease;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  height: 150px;
+  width: 300px;
+  text-align: left; /* Align text to the left */
+  direction: ltr; /* Ensure text direction is left-to-right */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Increase the blur amount here */
+body.popup-active #background-content {
+  filter: blur(100px); /* Adjust the blur amount */
+}
+.okbutton{
+  background-color: #f4ab1a;
+  border: none;
+  transition: transform 0.3s ease, color 0.3s ease; /* Adjust timing and easing function */
+  height: 26px;
+  width: 39px;
+  border-radius: 2px;
+  position: relative;
+  top: 12px;
+  left: 135px;
+
+}
+.okbutton:hover {
+
+    transform: scale(1.1); /* Slightly enlarge the button */
+    color: #f0f0f0; /* Change the text color on hover */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+
+
+
+  @media screen and (max-width: 600px) {
+
+    body {
+      background-color: rgba(136, 139, 139, 0.521);
+      margin: 0;
+      padding-left: 14px;
+    }
+
+    #background-content {
+      filter: blur(0px); /* Initial state, no blur */
+      transition: filter 0.3s ease;
+    }
+  
+    /* Centering the popup */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 101%;
+      height: 160%;
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 80px;
+      height: 65px;
+      text-align: left;
+      font-size: 7px;
+      position: relative;
+    }
+  
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 10px;
+      cursor: pointer;
+    }
+  
+    .hidden {
+      display: none;
+    }
+  
+    /* Increase the blur amount when popup is active */
+    body.popup-active #background-content {
+      filter: blur(100px);
+    }
+  
+    .okbutton {
+      background-color: #f4ab1a;
+      border: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+      height: 16px;
+      width: 22px;
+      position: relative;
+      border-radius: 2px;
+      top: -3px;
+      margin-left: -108px;
+      font-size: 10px;
+    }
+  
+    .okbutton:hover {
+      transform: scale(1.1);
+      color: #f0f0f0;
+      cursor: pointer;
+    }
+  
+    /* Centering the wholepage */
+    .wholepage {
+      width: 290px;
+      height: 340px;
+      margin: auto;
+      position: absolute; /* Use absolute to position it relative to the parent */
+      top: 171px;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the element */
+    }
+
+  
+    /* Other styling remains unchanged */
+    .line0 {
+      width: 290px;
+      height: 5px;
+    }
+  
+    .home {
+      background-color: #f4ab1a;
+      height: 15px;
+      width: 25px;
+      border-radius: 3px;
+      border: none;
+      font-size: 7px;
+      position: relative;
+      top: -4px;
+    }
+  
+    .home:hover {
+      background-color: #f4e21a;
+    }
+  
+    .dashboard {
+      width: 290px;
+      height: 170px;
+      background-size: contain;
+      background-image: url("fakenewspic.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+      position: relative;
+    }
+  
+    /* Continue with your other styles... */
+  }
+  
+
+
+.heading{
+width: 60px;
+display: flex;
+gap: 4px; /* Adjust the value as needed */
+font-size: 6px;
+position: relative; /* Add this line */
+margin-left: -20px;
+right: -170px;
+margin-top: -23px;
+margin-bottom: 13px;
+}
+
+
+
+
+textarea {
+width: 50px;
+border: 1px solid #ccc;
+border-radius: 3px;
+font-size: 5px;
+line-height: 1.5;
+min-height: 10px !important;
+margin-left: 170px;
+margin-top: -5px;
+margin-bottom: 12px;
+}
+textarea::placeholder{
+  font-size: 4px;
+}
+
+
+.processbutton {
+width: 50px;
+height: 10px;
+background-color: #f4ab1a;
+color: #fff;
+border: none;
+border-radius: 3px;
+margin-top: 15px; /* Adjust as needed to reduce the gap */
+cursor: pointer;
+color: black;
+font-size: 3px;
+margin-left: -67px;
+top: 60%;
+
+}
+.messages{
+margin-left: 127px;
+text-align: center;
+font-size: 5px;
+margin-top: -3px;
+
+
+}
+
+
+.processbutton:hover {
+background-color: #f4e21a;
+}
+
+.progress-bar {
+width: 0;
+height: 5px;
+background-color: #f4e21a;
+border-radius: 15px;
+animation: progress 5s ease-in-out infinite;
+margin-top: 1px; /* Adjust to ensure close placement to the button */
+margin-left: 170px;
+margin-top: 5px;
+
+}
+
+@keyframes progress {
+0% {
+  width: 0;
+}
+50% {
+  width: 78px;
+}
+100% {
+  width: 0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.resulttrue{
+height: 20px;
+width: 60px;
+border: 1px solid #0EB48B;
+background-color: #0EB48B;
+margin-left: 178px;
+border-radius: 8px;
+margin-top: 11px;
+
+}
+.resultfake{
+height: 20px;
+width: 60px;
+border: 1px solid #FF554A;
+background-color: #FF554A;
+margin-left: 178px;
+border-radius: 8px;
+margin-top: 11px;
+
+}
+.true{
+height: 20px;
+width: 30px;
+text-align: center;
+font-size: 100%;
+margin-left: 16px;
+margin-top: 2px;
+}
+.fake{
+height: 20px;
+width: 30px;
+margin-left: 65px;
+text-align: center;
+font-size: 100%;
+margin-left: 16px;
+margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+.line1{
+  width: 290px;
+  height: 5px;
+
+ }
+.middle {
+  width: 290px;
+  height: 260px;
+
+
+}
+
+.info {
+  width: 150px; /* Fixed width */
+  padding-top: 45px;
+  margin-left: -15px;
+
+}
+
+.info h2 {
+  font-size: 12px; /* Adjust as needed */
+}
+
+.info h4 {
+  font-size: 8px; /* Adjust as needed */
+}
+
+.chart {
+  height: 100px;
+  width: 200px;
+  margin-top: -35px;
+  margin-right: 1px;
+  margin-left: 6px;
+
+}
+.chart {
+  height: 100px;
+  width: 200px;
+  margin-top: -35px;
+  margin-right: 1px;
+  margin-left: 6px;
+  border: 3px solid white ;
+}
+
+.chart img {
+  width: 100%;  /* Adjust this value as needed */
+  height: 180%; /* Maintain aspect ratio */
+  max-width: 600px; /* Optional: Set a maximum width */
+}
+
+
+
+
+
+}

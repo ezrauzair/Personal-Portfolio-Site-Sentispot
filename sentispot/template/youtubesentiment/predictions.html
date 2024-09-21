@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictions</title>
+
+    <style>
+        body {
+            background-color: rgba(136, 139, 139, 0.521);
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 0%;
+
+        }
+
+        .wholepage {
+            background-color: aliceblue;
+            width: 100%;
+            height: 100%;
+            /* Set the width to 100% of the viewport */
+            max-width: 1920px;
+            /* Set a maximum width for larger screens */
+            min-height: 100vh;
+            /* Set a minimum height to 100% of the viewport height */
+
+        }
+
+        .menuecontainer {
+            height: auto;
+            width: 1080px;
+            display: flex;
+        }
+
+        .menue {
+
+            height: 70px;
+            width: 100%;
+            display: flex;
+            background-color: #223D50;
+            color: #fff;
+
+        }
+
+        .heading {
+            margin-left: 450px;
+
+        }
+
+
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="wholepage">
+
+        <div class="menuecontainer">
+            <div class="menue">
+                <div class="heading">
+                    <h2>Predictions</h2>
+                </div>
+            </div>
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Comments</th>
+                        <th>Sentiments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in predictions %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.text }}</td>
+                        <td>{{ item.sentiment }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    
+    
+    
+    
+
+
+        
+
+
+    </div>
+
+</body>
+
+</html>

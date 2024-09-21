@@ -1,0 +1,323 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'youtubesentiment/youtubecss2.css' %}">
+
+</head>
+
+
+
+
+<body>
+
+
+    <div class="asi2">
+
+        <div class="menuecontainer">
+            <form action="{% url 'sentispot' %}" method="post">
+                {% csrf_token %}
+                <button class="home">
+                    <div class="hometext">Home
+
+                    </div>
+                </button>
+            </form>
+
+        </div>
+
+        <section id="dashboard">
+
+            <div class="container">
+                <div class="largeheading">
+                    <h2>Diving into the Sea of Voices: Decode the Emotions Embedded in YouTube Comments with our
+                        Sentiment
+                        Analysis Tool </h2>
+                </div>
+
+                <div class="smallheading">
+                    <h5>Our system leverages the YouTube API to fetch comments and employs Amazon Web Services (AWS)
+                        API
+                        to filter for English content. Please note that the time required for analysis may vary
+                        based on
+                        the number of comments and your internet connection speed. As the volume of comments
+                        increases,
+                        processing time may lengthen accordingly</h5>
+
+                </div>
+                <div class="input-container">
+                    <div class="linkpasting">
+
+                        <form id="videolinkForm" method="post" action="{% url 'videolinkandlangdetect' %}">
+                            {% csrf_token %}
+                            <input type="text" name="link" placeholder="Paste your link here">
+                    </div>
+                    <div class="performbuttoncont">
+                        <button id="pitchButton" class="performbutton" type="submit" name="perform">Pitch</button>
+                    </div>
+
+
+                    </form>
+
+                </div>
+
+
+                <script>
+                    document.getElementById('pitchButton').onclick = function () {
+                        document.getElementById('progressbarmessage').style.display = 'block';
+                        var progressContainer = document.getElementById('progressContainer');
+                        if (progressContainer) {
+                            progressContainer.style.display = 'block';
+                        }
+                    };
+
+                </script>
+
+
+
+                <script>
+                    function toggleMenu() {
+                        const menu = document.getElementById('mobileMenu');
+                        menu.classList.toggle('show');
+                    }
+                </script>
+
+
+
+
+
+
+
+
+                {%if not available and not invalidlink and not nolink and not notavailable%}
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress-bar"></div>
+                </div>
+                {%endif%}
+                <div class="progress-container2" style="display: none;">
+                    <div class="progress-bar2"></div>
+                </div>
+
+
+
+
+
+                <div class="mainmessages">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p style="color: red;">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+
+                    <p style="color: rgb(29, 233, 39);">{{available}}</p>
+                    <p style="color: red;">{{notavailable}}</p>
+                    <p style="color: rgb(29, 233, 39);">{{english_comments_available}}</p>
+                    <p style="color: red;">{{english_comments_notavailable}}</p>
+
+
+                    {% if piechart %}
+                    {% if pos > neg and pos > neut %}
+                    <p style="color: rgb(29, 233, 39); ">Your Video is Positive</p>
+                    {% elif neg > pos and neg > neut %}
+                    <p style="color: rgb(255, 0, 0); ">Your Video is Negative</p>
+                    {% elif neut > pos and neut > neg %}
+                    <p style="color: rgb(222, 245, 9); ">Your Video is Neutral</p>
+                    {%else%}
+                    <p style="color: rgb(14, 111, 237); ">Your Video has Mixed Sentiments</p>
+                    {% endif %}
+                    {%endif%}
+
+                </div>
+
+
+
+                {%if available%}
+
+                <div class="container2">
+                    <form method="post" action="{% url 'viewcomments' %}">
+                        {% csrf_token %}
+
+
+                        <button class="commentsbutton" type="submit" name="view-comments">All Comments</button>
+
+                    </form>
+
+                    <form method="post" action="{% url 'viewenglishcomments' %}">
+                        {% csrf_token %}
+                        <button class="englishbutton" type="submit" name="english-comments">English
+                            Comments</button>
+
+                    </form>
+
+                    <form method="post" action="{% url 'piechart' %}">
+                        {% csrf_token %}
+                        <!-- Add a button to trigger the pie chart generation -->
+                        <button id="sentimentbutton" class="piebutton" type="submit" name="piechartbutton">Sentiment
+                            Analysis</button>
+                    </form>
+                </div>
+
+                {%endif%}
+
+
+                <script>
+                    document.getElementById('sentimentbutton').onclick = function () {
+                        document.getElementById('sentimentmessage').style.display = 'block';
+                        var progressContainer2 = document.querySelector('.progress-container2');
+                        if (progressContainer2) {
+                            progressContainer2.style.display = 'block';
+                        }
+                    };
+
+                    window.addEventListener('pageshow', function (event) {
+                        if (event.persisted) {
+                            // Hide the sentiment message and progress bar when navigating back
+                            document.getElementById('sentimentmessage').style.display = 'none';
+                            var progressContainer2 = document.querySelector('.progress-container2');
+                            if (progressContainer2) {
+                                progressContainer2.style.display = 'none';
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+
+
+
+
+
+        </section>
+
+        <section id="analytics">
+            <div class="all">
+
+                <div class="asianalytics"></div>
+
+
+                <div class="row">
+                    <div class="green">
+                        <div class="positive">
+                            <div class="heading1" style="color: green;">Positive Comments</div>
+                            <div class="textcontainer">
+                                <div class="text1">{{pos}}</div>
+                            </div>
+                            <div class="emojie1"></div>
+
+                        </div>
+                    </div>
+                    <div class="yellow">
+                        <div class="neutral">
+                            <div class="heading2" style="color:rgb(241, 238, 25);">Neutral Comments</div>
+                            <div class="textcontainer">
+                                <div class="text2">{{neut}}</div>
+                            </div>
+                            <div class="emojie2"></div>
+
+                        </div>
+                    </div>
+                    <div class="red">
+                        <div class="negetive">
+                            <div class="heading3" style="color: rgb(235, 13, 31);">Negetive Comments</div>
+                            <div class="textcontainer">
+                                <div class="text3">{{neg}}</div>
+                            </div>
+                            <div class="emojie3"></div>
+
+                        </div>
+                    </div>
+                    <div class="blue">
+                        <div class="total">
+                            <div class="heading4" style="color: rgb(28, 97, 224);">Total Comments</div>
+                            <div class="textcontainer">
+                                <div class="text4">{{total_comments}}</div>
+                            </div>
+                            <div class="emojie4"></div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="charts">
+
+                    <div class="pie">
+                        <div class="piecover">
+                            {%if piechart%}
+                            {%load static%}
+                            <img src="data:image/png;base64,{{piechart}}" alt="Pie Chart">
+                            {%endif%}
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="bar">
+                        <div class="barcover">
+                            {%if barchart%}
+                            {%load static%}
+                            <img src="data:image/png;base64,{{barchart}}" alt="Bar Chart">
+                            {%endif%}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+        <div class="sentiment-message" id="sentimentmessage" style="display: none;">Message: Button was
+            clicked!
+        </div>
+        <div class="progressbarmessage" id="progressbarmessage" style="display: none;">Message: Button
+            was
+            clicked!
+        </div>
+    </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

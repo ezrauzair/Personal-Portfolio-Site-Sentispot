@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'fakenews/fakenewscss.css' %}">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+    <div class="wholepage">
+
+        <section id="home">
+            <div class="line0"></div>
+            <div class="dashboard">
+
+
+
+
+                <!-- Background content -->
+                <div id="background-content">
+                </div>
+
+                <!-- Popup window -->
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <p>For optimal results with our model, it is recommended to use articles without headings. This
+                            approach helps maintain the flow and coherence of the content. Thank you!.</p>
+                        <button class="okbutton" onclick="closePopup()">OK</button>
+                    </div>
+                </div>
+
+                <script src="script.js"></script>
+
+                <script>
+                    window.onload = function () {
+                        // Display the popup and blur the background when the page loads
+                        document.body.classList.add('popup-active');
+                        document.getElementById('popup').classList.remove('hidden');
+                    };
+
+                    function closePopup() {
+                        // Hide the popup and remove the blur effect
+                        document.body.classList.remove('popup-active');
+                        document.getElementById('popup').classList.add('hidden');
+                    }
+
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <form action="{% url 'sentispot' %}" method="post">
+                    {% csrf_token %}
+                    <button class="home">Home</button>
+                </form>
+                <div class="heading">
+                    <h1 style="color: #f4ab1a;">Fake</h1>
+                    <h1>News</h1>
+                    <h1>Detection</h1>
+                    <h1>System</h1>
+                </div>
+
+                <form method="post" action="{% url 'bulletchart' %}">
+                    {% csrf_token %}
+                    <textarea name="news" placeholder="Paste your news here" rows="4" cols="50"></textarea>
+                    <button id="pitchButton" class="processbutton" type="submit" name="process">Start the
+                        Process</button>
+
+                </form>
+
+                <div id="message-container" class="messages">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                    {% endfor %}
+                    {% endif %}
+
+
+
+                    <script>
+                        document.getElementById('pitchButton').onclick = function () {
+                            var progressContainer = document.getElementById('progressContainer');
+                            if (progressContainer) {
+                                progressContainer.style.display = 'block';
+                            }
+                        };
+                    </script>
+
+
+
+
+
+                </div>
+
+
+                <div class="progress-bar" id="progressContainer" style="display: none;"></div>
+                {% if Real%}
+                <div class="resulttrue">
+                    <div class="true">
+                        Real
+                    </div>
+                </div>
+                {% endif %}
+
+
+                {% if Fake %}
+                <div class="resultfake">
+                    <div class="fake">
+                        Fake
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </section>
+
+        <div class="line1">
+        </div>
+
+        <div class="middle">
+            <div class="info">
+                <h2>Welcome to Our Fake News Detection Platform</h2>
+                <h4>
+                    Welcome to our Fake News Detection website! Our site leverages the powerful BERT model, trained
+                    on
+                    an extensive and robust dataset from Kaggle, achieving an impressive accuracy of 97%. By using
+                    state-of-the-art machine learning techniques, we aim to provide accurate and reliable fake news
+                    detection to help you navigate the vast sea of information online. Explore our tool and stay
+                    informed with confidence. Check out our project on GitHub and the Kaggle Dataset.
+                </h4>
+            </div>
+            <div class="chart">
+                {% if chart%}
+                <img src="{{ chart }}">
+                {%endif%}
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+</html>
