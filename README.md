@@ -4,7 +4,6 @@ Welcome to Sentispot, a personal portfolio website that showcases my work and se
 
 📜 Features
 * Combination of WordPress and Django: Harnesses the strengths of both platforms for content management and dynamic functionality.
-* Company Showcase - Sentispot: Highlight my business, Sentispot, where I offer a range of professional services.
 * Project Gallery: A detailed section where users can find and explore the projects I’ve worked on.
 * Beautiful User Interface: A clean, modern, and responsive UI that delivers an engaging experience across all devices.
 
