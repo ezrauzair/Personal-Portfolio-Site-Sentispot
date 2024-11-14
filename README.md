@@ -1,4 +1,5 @@
 💼 Personal Portfolio - Sentispot
+
 Welcome to Sentispot, a personal portfolio website that showcases my work and services. This site combines the power of WordPress for easy content management with the versatility of Django for advanced project functionality. It features a beautiful, user-friendly interface where visitors can explore my company’s services and discover my projects.
 
 
